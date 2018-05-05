@@ -101,7 +101,7 @@ describe('angular.io/docs testes', function() {
     });
 
     //Отображение китайской версии страницы
-    it('Chinese version link', function() {
+    xit('Chinese version link', function() {
         pageObject.linkChineseLangVersion.click();
         expect(browser.getCurrentUrl()).toEqual('https://angular.cn/');
     });
