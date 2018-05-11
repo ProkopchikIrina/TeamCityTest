@@ -6,7 +6,12 @@ exports.config = {
     capabilities: {
         browserName: 'chrome'
     },
-
+    onPrepare: function() {
+        var AllureReporter = require('jasmine-allure-reporter');
+        jasmine.getEnv().addReporter(new AllureReporter({
+            resultsDir: 'allure-results'
+        }));
+    },
     // Spec patterns are relative to the configuration file location passed
     // to protractor (in this example conf.js).
     // They may include glob patterns.
