@@ -1,4 +1,3 @@
-//module.exports.PageObject=PageObject;
 module.exports = new PageObject();
 function PageObject()
 {

@@ -1,5 +1,4 @@
 pageObject = require('../page-object.js');
-
 describe('search testes', function() {
     beforeEach(function() {
         browser.get('http://www.angular.io/docs');
