@@ -12,5 +12,5 @@ function PageObject()
     this.mainMenuItem=element(by.css('[href="events"]'));
     this.linkChineseLangVersion=element(by.css('.link[title="中文版"]'));
     this.mainMenuGroupOfItemsLevel1=element(by.css('ul [role="navigation"]'));
-    this.linkToHeading=element(by.css('.material-icons'));
+    this.linkToHeading=element(by.css('.header-link'));
 }

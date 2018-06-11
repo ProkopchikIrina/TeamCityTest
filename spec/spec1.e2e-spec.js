@@ -1,4 +1,4 @@
-pageObject = require('../page-object.js');
+var pageObject = require('../page-object.js');
 describe('search testes', function() {
     beforeEach(function() {
         browser.get('http://www.angular.io/docs');
@@ -6,8 +6,9 @@ describe('search testes', function() {
     });
 
     //Проверка вставки в поле поиска
-    xit('checks the pasting into search field', function() {
-        browser.actions().mouseMove( {x: 285, y: 80}).mouseDown().mouseMove({x: 445, y: 80}).mouseUp().keyDown(protractor.Key.CONTROL).sendKeys('c').perform();
+    it('checks the pasting into search field', function() {
+        var title=pageObject.title;
+        browser.actions().mouseMove(title,{x:0,y:0}).mouseDown().mouseMove(title,{x:200,y:0}).mouseUp().keyDown(protractor.Key.CONTROL).sendKeys('c').perform();
         browser.actions().keyDown(protractor.Key.CONTROL).sendKeys('c').perform();
         var search=pageObject.search.click();
         browser.actions().keyDown(protractor.Key.CONTROL).sendKeys('v').perform();
@@ -47,7 +48,6 @@ describe('angular.io/docs testes', function() {
         browser.actions().mouseMove((pageObject.title));
         expect(pageObject.linkToHeading.isPresent()).toBeTruthy();
     });
-
     //Проверка работы кнопки закрывающей боковое меню(закрытие меню) - не проходит
     it('checks that docs menu button close left menu (closing)', function() {
         pageObject.leftMenuButton.click();
@@ -72,8 +72,7 @@ describe('angular.io/docs testes', function() {
         expect(pageObject.leftMenu.isDisplayed()).toBeTruthy();
     });
 
-    //Проверка работы бокового меню (нажать на пункт Fundamentals, затем Architecture, свернуть Fundamentals, развертнуть Fundamentals)
-    //результат: пункты меню 3 уровня не отображаются
+    //Проверка работы бокового меню
     it('checks the condition of the left menu by menu items of level-1 and level-2 deployment', function() {
         var menuItemLevel1=pageObject.leftMenuItemLevel1.click();
         pageObject.leftMenuItemLevel2.click();
@@ -85,6 +84,12 @@ describe('angular.io/docs testes', function() {
     it('checks that menu item works correctly', function() {
         pageObject.mainMenuItem.click();
         expect(browser.getCurrentUrl()).toEqual('https://angular.io/events');
+    });
+
+    //Проверка работы клика по элементу "link to this heading"
+    fit('checks that click on element "link to this heading" works correctly', function() {
+        var link=pageObject.linkToHeading;
+        expect(link.getAttribute('href')).toEqual('https://angular.io/docs#what-is-angular');
     });
 
     //Проверка работы элемента 'Home' (переход на главную страницу)
@@ -100,8 +105,8 @@ describe('angular.io/docs testes', function() {
     });
 
     //Отображение китайской версии страницы
-    xit('Chinese version link', function() {
-        pageObject.linkChineseLangVersion.click();
-        expect(browser.getCurrentUrl()).toEqual('https://angular.cn/');
+    it('Chinese version link', function() {
+        var link=pageObject.linkChineseLangVersion;
+        expect(link.getAttribute('href')).toEqual('https://angular.cn/');
     });
 });
