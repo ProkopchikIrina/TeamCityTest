@@ -87,7 +87,7 @@ describe('angular.io/docs testes', function() {
     });
 
     //Проверка работы клика по элементу "link to this heading"
-    xit('checks that click on element "link to this heading" works correctly', function() {
+    it('checks that click on element "link to this heading" works correctly', function() {
         var link=pageObject.linkToHeading;
         expect(link.getAttribute('href')).toEqual('https://angular.io/docs#what-is-angular');
     });
@@ -105,7 +105,7 @@ describe('angular.io/docs testes', function() {
     });
 
     //Отображение китайской версии страницы
-    xit('Chinese version link', function() {
+    it('Chinese version link', function() {
         var link=pageObject.linkChineseLangVersion;
         expect(link.getAttribute('href')).toEqual('https://angular.cn/');
     });
