@@ -6,7 +6,7 @@ describe('search testes', function() {
     });
 
     //Проверка вставки в поле поиска
-    it('checks the pasting into search field', function() {
+    fit('checks the pasting into search field', function() {
         var title=pageObject.title;
         browser.actions().mouseMove(title,{x:0,y:0}).mouseDown().mouseMove(title,{x:200,y:0}).mouseUp().keyDown(protractor.Key.CONTROL).sendKeys('c').perform();
         browser.actions().keyDown(protractor.Key.CONTROL).sendKeys('c').perform();
@@ -87,7 +87,7 @@ describe('angular.io/docs testes', function() {
     });
 
     //Проверка работы клика по элементу "link to this heading"
-    it('checks that click on element "link to this heading" works correctly', function() {
+    fit('checks that click on element "link to this heading" works correctly', function() {
         var link=pageObject.linkToHeading;
         expect(link.getAttribute('href')).toEqual('https://angular.io/docs#what-is-angular');
     });
@@ -105,7 +105,7 @@ describe('angular.io/docs testes', function() {
     });
 
     //Отображение китайской версии страницы
-    it('Chinese version link', function() {
+    fit('Chinese version link', function() {
         var link=pageObject.linkChineseLangVersion;
         expect(link.getAttribute('href')).toEqual('https://angular.cn/');
     });
