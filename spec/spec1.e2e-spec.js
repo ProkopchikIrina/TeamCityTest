@@ -6,7 +6,7 @@ describe('search testes', function() {
     });
 
     //Проверка вставки в поле поиска
-    xit('checks the pasting into search field', function() {
+    it('checks the pasting into search field', function() {
         var title=pageObject.title;
         browser.actions().mouseMove(title,{x:0,y:0}).mouseDown().mouseMove(title,{x:200,y:0}).mouseUp().keyDown(protractor.Key.CONTROL).sendKeys('c').perform();
         browser.actions().keyDown(protractor.Key.CONTROL).sendKeys('c').perform();
