@@ -87,7 +87,7 @@ describe('angular.io/docs testes', function() {
     });
 
     //Проверка работы клика по элементу "link to this heading"
-    fit('checks that click on element "link to this heading" works correctly', function() {
+    it('checks that click on element "link to this heading" works correctly', function() {
         var link=pageObject.linkToHeading;
         expect(link.getAttribute('href')).toEqual('https://angular.io/docs#what-is-angular');
     });
